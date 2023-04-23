@@ -33,7 +33,3 @@ void pal(int n){
         printf("IT IS NOT A PALINDROME NUMBER\n");
     }
 }
-
-add(){
-    print(a);
-}
