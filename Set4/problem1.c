@@ -1,48 +1,37 @@
-// C program to find the prime numbers
-// between a given interval
-  
+//Prime numbers in a given Range
+
 #include <stdio.h>
-  
+int checkPrime(int num);
+
 int main()
 {
-    // Declare the variables
-    int a, b, i, j, flag;
-  
-    // Ask user to enter lower value of interval
-    printf("Enter lower bound of the interval: ");
-    scanf("%d", &a); // Take input
-  
-    // Ask user to enter upper value of interval
-    printf("\nEnter upper bound of the interval: ");
-    scanf("%d", &b); // Take input
-  
-    // Print display message
-    printf("\nPrime numbers between %d and %d are: ", a, b);
-  
-    // Traverse each number in the interval
-    // with the help of for loop
-    for (i = a; i <= b; i++) {
-        // Skip 0 and 1 as they are
-        // neither prime nor composite
-        if (i == 1 || i == 0)
-            continue;
-  
-        // flag variable to tell
-        // if i is prime or not
-        flag = 1;
-  
-        for (j = 2; j <= i / 2; ++j) {
-            if (i % j == 0) {
-                flag = 0;
-                break;
+    int a, b;
+    printf("Enter the Start point : ");
+    scanf("%d", &a);
+    printf("Enter the End point : ");
+    scanf("%d", &b);
+    
+    for(int i=a; i <= b; i++){
+        if(checkPrime(i))
+            printf("%d ",i);
+    }
+    return 0;
+}
+
+int checkPrime(int num)
+{
+    if(num < 2){
+        return 0;
+    }
+    else{
+        int x = num;
+        for(int i = 2; i < x; i++)
+        {
+            if(num % i == 0)
+            {
+                return 0;
             }
         }
-  
-        // flag = 1 means i is prime
-        // and flag = 0 means i is not prime
-        if (flag == 1)
-            printf("%d ", i);
     }
-  
-    return 0;
+    return 1;
 }
